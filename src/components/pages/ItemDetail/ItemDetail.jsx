@@ -1,14 +1,19 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { products } from "../../../products";
+import { dataBase } from "../../firebaseConfig";
+import { collection, doc, getDoc } from "firebase/firestore";
+import Counter from "../../common/counter/counter";
 
 const ItemDetail = () => {
-  const { id } = useParams(); 
+  const { id } = useParams();
+
   const [product, setProduct] = useState({});
 
   useEffect(() => {
-    let productSelected = products.find((el) => el.id === +id);
-    setProduct(productSelected);
+    let productsCollection = collection(dataBase, "products");
+    let refDoc = doc(productsCollection, id);
+    const getDocById = getDoc(refDoc);
+    getDocById.then((res) => setProduct({ ...res.data(), id: res.id }));
   }, [id]);
 
   return (
@@ -20,8 +25,8 @@ const ItemDetail = () => {
       }} src={product.image} alt="" />
       <div className="card">
         <p >{product.description}</p>
-        <p style={{backgroundColor:"violet", fontSize:"40px"}}>{product.precio}</p>
-        <button style={{borderRadius:"0.5rem"}}>Agregar al pedido</button>
+        <p style={{backgroundColor:"blueviolet", fontSize:"40px"}}>{product.precio}</p>
+        <Counter product={product}/>
       </div>
       
      

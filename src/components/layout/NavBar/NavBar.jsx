@@ -12,7 +12,7 @@ const Navbar = () => {
       }}
     >
       <Link style={{
-      textDecoration:"none", color:"black"}} to="/">
+      textDecoration:"none", color:"white"}} to="/">
      <h2 >Nuestros productos</h2>
       </Link>
       <ul

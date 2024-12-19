@@ -14,7 +14,7 @@ const ProductCard = ({ product }) => {
       
       <p>{product.description}</p>
       <p>{product.precio}</p>
-      <button style={{borderRadius:"0.5rem"}}>Agregar al carrito</button>
+      <Link className="link" to={`/itemDetail/${product.id}`}>Ver detalle</Link>
     </div>
   );
 };

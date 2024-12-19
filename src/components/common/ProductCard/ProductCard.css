@@ -73,3 +73,7 @@
   .card:hover .card-content p {
     color: #444;
   }
+  .link{
+    text-decoration: none;
+    color: rgb(217, 88, 246);
+  }
