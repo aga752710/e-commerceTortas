@@ -7,7 +7,7 @@ const CartWidget = () => {
 
   return (
     <Link to="/cart">
-      <img style={{width:"60px", marginleft:"30px"}} src="/images/carrito.png" alt="carrito" />
+      <img style={{width:"60px", marginleft:"30px"}} src="https://res.cloudinary.com/dvqc2bb12/image/upload/v1734448618/carrito_lhe6z7.png" alt="carrito" />
       <span>{cart.length}</span>
     </Link>
   );
